@@ -1,0 +1,13 @@
+extends ../config/template
+append config
+  -pageTitle = 'Error 404'
+  -pageDescription = 'Lo siento, no está disponible el contenido que solicitas.'
+
+block header
+  include ../includes/header
+block main
+  .l-block
+  .error-404
+    .ed-container
+      .ed-item
+        p.s-center Lo siento, no está disponible el contenido que solicitas.

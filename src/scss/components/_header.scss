@@ -1,0 +1,14 @@
+.main-header {
+  background    : #FFF;
+  border-bottom : 1px solid var(--border-color);
+  height        : var(--header-height);
+  position      : fixed;
+  top           : 0;
+  left          : 0;
+  width         : 100%;
+  z-index       : $z-fixed;
+
+  > .ed-grid {
+    height: 100%;
+  }
+}

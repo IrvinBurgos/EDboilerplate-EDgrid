@@ -1,0 +1,104 @@
+// Font families
+$body-font    : Lato,        'sans-serif';
+$heading-font : 'Open Sans', 'sans-serif';
+
+// CSS variables for typography
+:root {
+  // Font families
+  --heading-font : 'Open Sans', sans-serif;
+  --body-font    : Lato,        sans-serif;
+
+  // Font sizes
+  --h1-font-size        : #{rem(24px)};
+  --h2-font-size        : #{rem(20px)};
+  --h3-font-size        : #{rem(16px)};
+  --normal-font-size    : #{rem(15px)};
+  --small-font-size     : #{rem(13px)};
+  --smaller-font-size   : #{rem(12px)};
+  --heading-line-height : 1.3;
+  --body-line-height    : 1.6;
+
+  // Font sizes from lg breakpoint (64em ~ 1024px)
+  @include from(lg) {
+    --h1-font-size      : #{rem(36px)};
+    --h2-font-size      : #{rem(28px)};
+    --h3-font-size      : #{rem(20px)};
+    --normal-font-size  : #{rem(16px)};
+    --small-font-size   : #{rem(14px)};
+    --smaller-font-size : #{rem(13px)};
+  }
+}
+
+// Assign heading styles
+h1, .t1 { @include t1 }
+h2, .t2 { @include t2 }
+h3, .t3 { @include t3 }
+h4, .t4 { @include t4 }
+h5, .t5 { @include t5 }
+h6, .t6 { @include t6 }
+
+// Assign text content styles
+.biggest { @include biggest }
+.bigger  { @include bigger  }
+.big     { @include big     }
+.normal  { @include normal  }
+.small   { @include small   }
+.smaller { @include smaller }
+
+// Default text styles
+body {
+  @include normal;
+  color : var(--text-color);
+}
+
+// classes for font-family
+.body-font {
+  font-family : var(--body-font)
+}
+.heading-font {
+  font-family : var(--heading-font)
+}
+
+// Blockquote
+blockquote {
+  @include big;
+  font-style     : italic;
+  letter-spacing : .01em;
+  margin-left    : 2rem;
+  opacity        : .9;
+  position       : relative;
+
+  @include from(l) {
+    margin-left : 4rem;
+  }
+
+  &::before {
+    content        : "\201C";
+    font-family    : Georgia, serif;
+    font-size      : 3em;
+    line-height    : 0;
+    letter-spacing : -0.5em;
+    position       : absolute;
+    top            : .5em;
+    left           : -.6em;
+  }
+}
+
+// Links
+// Menu links doesn't have underline
+a {
+  color : var(--second-color);
+
+  main & {
+    text-decoration : none;
+
+    &:hover {
+      text-decoration : underline;
+    }
+  }
+}
+
+::selection {
+  background : var(--second-color);
+  color      : #FFF
+}

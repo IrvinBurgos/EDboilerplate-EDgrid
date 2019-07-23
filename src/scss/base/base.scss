@@ -1,0 +1,12 @@
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: var(--header-height) 0 0 0;
+  min-height: calc(100vh - var(--header-height));
+}

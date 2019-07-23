@@ -1,0 +1,260 @@
+/*********************************************************************
+**********************************************************************
+***************************MENUS**************************************
+**********************************************************************
+**********************************************************************/
+
+@mixin main-menu {
+  font-size : fontSize(small);
+
+  @include to(lg) {
+    background : var(--dark-color);
+    height     : calc(100vh - 64px);
+    overflow-y : auto;
+    padding    : 1em 1em 2em;
+    position   : fixed;
+    top        : var(--header-height);
+    right      : -80%;
+    transition : right .5s;
+    width      : 80%;
+    // Mostrar el menu
+    &.show {
+      right : 0;
+    }
+  }
+
+  ul {
+    @include clearMenu;
+
+    @include from(lg) {
+      display : flex;
+    }
+  }
+
+  li {
+    border-bottom : 1px solid rgba(#FFF,0.2);
+    color         : #FFF;
+    margin        : 0;
+    padding       : 1em 0;
+    transition    : all .5s;
+
+    @include from(lg) {
+      color       : var(--text-color);
+      margin-left : 2rem;
+      padding     : 0;
+
+      &:hover {
+        border-bottom: 2px solid var(--border-color);
+      }
+    }
+  }
+
+  a {
+    color : inherit;
+  }
+}
+
+@mixin clearMenu {
+  list-style    : none;
+  margin-left   : 0;
+  margin-top    : 0;
+  margin-bottom : 0;
+  padding-left  : 0;
+}
+
+/*********************************************************************
+**********************************************************************
+***************************BUTTONS************************************
+**********************************************************************
+**********************************************************************/
+
+@mixin button {
+  background-color : var(--color);
+  border           : 1px solid var(--color);
+  border-radius    : .25rem;
+  color            : #FFF;
+  cursor           : pointer;
+  display          : inline-block;
+  line-height      : inherit;
+  padding          : .5rem 1rem;
+  text-align       : center;
+  text-decoration  : none;
+  transition       : transform .05s;
+  user-select      : none;
+
+  &:hover {
+    background-color : var(--color-alt);
+    text-decoration  : inherit;
+  }
+
+  &:active {
+    transform : scale(.99)
+  }
+}
+
+@mixin button-tiny {
+  font-size : var(--small-font-size);
+  padding   : .25rem .5rem;
+}
+
+@mixin button-micro {
+  border-radius: 0;
+  font-size: var(--small-font-size);
+  line-height: var(--heading-line-height);
+  padding: 0 .25rem;
+}
+
+@mixin button-full {
+  margin-left  : 0;
+  margin-right : 0;
+  width        : 100%;
+}
+
+@mixin button-last {
+  margin-right  : 0;
+  margin-bottom : 0;
+}
+
+@mixin button-second {
+  --color-button     : var(--second-color);
+  --color-button-alt : var(--second-color-alt);
+}
+
+@mixin button-alert {
+  --color-button     : var(--third-color);
+  --color-button-alt : var(--third-color-alt);
+}
+
+@mixin button-cta {
+  --color-button     : var(--accent-color);
+  --color-button-alt : var(--accent-color-alt)
+}
+
+@mixin button-dark {
+  --color-button     : var(--dark-color);
+  --color-button-alt : var(--dark-color-alt);
+}
+
+@mixin button-light {
+  --color-button     : #FFF;
+  --color-button-alt : var(--color-light);
+  color              : var(--color-text);
+}
+
+@mixin button-ghost {
+  background : none;
+  border     : 1px solid;
+  color      : var(--color-button);
+
+  &:hover {
+    background   : var(--color-button);
+    border-color : transparent;
+    color        : #FFF;
+  }
+}
+
+@mixin button-ghost-alert {
+  --color-button : var(--third-color);
+}
+
+@mixin button-ghost-second {
+  --color-button : var(--second-color);
+}
+
+@mixin button-ghost-dark {
+  --color-button : var(--dark-color);
+}
+
+@mixin button-ghost-light {
+  --color-button : #FFF;
+
+  &:hover {
+    color : var(--text-color);
+  }
+}
+
+@mixin button-cancel {
+  @include button-ghost;
+
+  --color-button : var(--text-color);
+}
+
+/*********************************************************************
+**********************************************************************
+***************************TIPOGRAPHY*********************************
+**********************************************************************
+**********************************************************************/
+
+// Mixins for heading styles
+@mixin heading-font {
+  font-family    : var(--heading-font);
+  font-weight    : 600;
+  line-height    : var(--heading-line-height);
+}
+
+@mixin t1 {
+  @include heading-font;
+  font-size   : var(--h1-font-size);
+}
+
+@mixin t2 {
+  @include heading-font;
+  font-size   : var(--h2-font-size);
+}
+
+@mixin t3 {
+  @include heading-font;
+  font-size   : var(--h3-font-size);
+}
+
+@mixin t4 {
+  @include heading-font;
+  font-size   : var(--normal-font-size);
+}
+
+@mixin t5 {
+  @include heading-font;
+  font-size   : var(--small-font-size);
+}
+
+@mixin t6 {
+  @include heading-font;
+  font-size   : var(--smaller-font-size);
+}
+
+// Mixins for text content styles
+@mixin body-font {
+  font-family: var(--body-font);
+  font-weight: 400;
+  line-height: var(--body-line-height);
+}
+
+@mixin biggest {
+  @include body-font;
+  font-size: var(--h1-font-size);
+}
+
+@mixin bigger {
+  @include body-font;
+  font-size: var(--h2-font-size);
+}
+
+@mixin big {
+  @include body-font;
+  font-size: var(--h3-font-size);
+}
+
+@mixin normal {
+  @include body-font;
+  font-size: var(--normal-font-size);
+}
+
+@mixin small {
+  @include body-font;
+  font-size: var(--small-font-size);
+}
+
+@mixin smaller {
+  @include body-font;
+  font-size: var(--smaller-font-size);
+}

@@ -1,0 +1,137 @@
+/*********************************************************************
+**********************************************************************
+***************************LEGACY CODE********************************
+**********************************************************************
+**********************************************************************/
+.button,
+[class*=button] {
+  @include button;
+}
+
+.button--tiny{
+  @include button-tiny;
+}
+
+[class*=button].full {
+  @include button-full;
+}
+
+.button--secondary,
+.button--second {
+  @include button-second;
+}
+
+.button--alert {
+  @include button-alert;
+}
+
+.button--cta {
+  @include button-cta;
+}
+
+.button--dark {
+  @include button-dark;
+}
+
+.button--light {
+  @include button-light;
+}
+
+[class*=button--ghost] {
+  @include button-ghost;
+}
+
+.button--ghost-alert,
+.button--ghost--alert {
+  @include button-ghost-alert;
+}
+
+.button--ghost-secondary,
+.button--ghost--secondary,
+.button--ghost-second,
+.button--ghost--second,
+.buttton--ghost.second-color{
+  @include button-ghost-second;
+}
+
+.button--ghost-cta,
+.button--ghost--cta,
+.button-ghost.accent-color {
+  @include button-cta;
+}
+
+.button--ghost-dark,
+.button--ghost--dark,
+.button--ghost.dark-color {
+  @include button-ghost-dark;
+}
+
+.button--ghost-light,
+.button--ghost--light {
+  @include button-ghost-light;
+}
+
+.button--cancel {
+  @include button-cancel;
+}
+
+/*********************************************************************
+**********************************************************************
+************************END LEGACY CODE*******************************
+**********************************************************************
+**********************************************************************/
+
+// Estructura funcional de botones
+// .button se trae desde EDgrid
+
+// Ghost
+.button.light-color {
+  color: var(--text-color);
+}
+
+.disabled,
+.disabled:hover {
+  --color: var(--light-color);
+  background: var(--color);
+  cursor: default;
+  color: #888;
+
+  &:active {
+    transform: none;
+  }
+}
+
+.ghost {
+  color: var(--color);
+  background: none;
+
+  &:hover {
+    background: var(--color);
+    color: #fff;
+  }
+
+  &.color-light,
+  &.light-color {
+    --color: var(--body-bg);
+    color: var(--color);
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}
+
+// Variaciones de tamaños:
+.tiny {
+  font-size: var(--small-font-size);
+  padding: .25rem .5rem;
+}
+
+.micro {
+  font-size: var(--small-font-size);
+  padding: 0 .25rem;
+}
+
+// Los botones se alinean con EDgrid
+// .button.bp-to-[left|center|right]
+

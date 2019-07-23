@@ -1,0 +1,35 @@
+.main-menu-toggle {
+  @include navToggle(20px, var(--text-color));
+}
+
+.main-menu {
+  @include main-menu;
+
+  a:hover {
+    text-decoration : none;
+  }
+
+  .active {
+    @include from(lg) {
+      color: var(--third-color);
+      font-weight : 400;
+
+      &::before {
+        display : none;
+      }
+    }
+  }
+}
+
+body {
+  position   : relative;
+  right      : 0;
+  transition : right .5s;
+
+  &.main-menu-visible {
+    @include to(lg) {
+      right      : 80%;
+      overflow-y : hidden;
+    }
+  }
+}

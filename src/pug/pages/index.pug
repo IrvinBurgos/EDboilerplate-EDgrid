@@ -1,0 +1,22 @@
+extends ../config/template
+append config
+  -pageDescription = 'Página inicial de EDboilerplate'
+  -image = 'https://images.pexels.com/photos/265614/pexels-photo-265614.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
+  -bannerTitle = 'EDboilerplate'
+  -bannerDescription = 'Es una sencilla estructura para un proyecto web estático.'
+  -bannerButton = 'si'
+  -bannerButtonUrl = '#'
+  -bannerButtonClass = 'ghost-light'
+  -bannerButtonText = 'Ir a EDboilerplate'
+
+block header
+  include ../includes/header
+
+block banner
+  +banner(image, bannerTitle, bannerDescription, bannerButton, bannerButtonUrl, bannerButtonClass, bannerButtonText, bannerButtons)
+
+block main
+  main.main-content
+
+block footer
+  include ../includes/footer

@@ -1,0 +1,19 @@
+mixin banner(image, bannerTitle, bannerDescription, bannerButton, bannerButtonUrl, bannerButtonClass, bannerButtonText, bannerButtons)
+  .main-banner.diagonal.l-block.img-container
+    .ed-grid.lg-grid-6
+      .lg-cols-4.lg-x-2
+        img(src=image).main-banner__img
+        .main-banner__data.s-center
+          h1.s-mb-1=bannerTitle
+          if (bannerDescription !== '')
+            p.s-mb-1=bannerDescription
+          if (bannerButton)
+            a(href=bannerButtonUrl class='button--'+bannerButtonClass+' ' target="_blank" title=bannerButtonText)=bannerButtonText
+          if (bannerButtons)
+            .main-banner__buttons
+              a(href=bannerButtonUrl class="button--cta small" target="_blank" title=bannerButtonText)
+                span.space=bannerButtonText
+              a(href=bannerButtonUrl class="button--cta small" target="_blank" title=bannerButtonText)
+                span.space=bannerButtonText
+              a(href=bannerButtonUrl class="button--cta small" target="_blank" title=bannerButtonText)
+                span.space=bannerButtonText
